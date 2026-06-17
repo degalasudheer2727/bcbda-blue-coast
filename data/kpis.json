@@ -1,0 +1,15 @@
+{
+  "horizonYears": 10,
+  "kpis": [
+    { "id": 1, "goal": "Blue Flag certification", "metric": "Certified corridor beaches", "target": "≥ 2", "unit": "beaches", "pillar": "Pristine & Safe Coast" },
+    { "id": 2, "goal": "Financial self-sufficiency", "metric": "O&M covered by own revenue", "target": "≥ 100", "unit": "%", "pillar": "Resilient & Transparent Governance" },
+    { "id": 3, "goal": "Renewable energy", "metric": "Corridor electricity from renewables", "target": "≥ 90", "unit": "%", "pillar": "Smart & Circular Infrastructure" },
+    { "id": 4, "goal": "Water reuse", "metric": "Wastewater treated / reused", "target": "100 / ≥70", "unit": "%", "pillar": "Smart & Circular Infrastructure" },
+    { "id": 5, "goal": "Zero-landfill waste", "metric": "Landfill diversion", "target": "~100", "unit": "%", "pillar": "Smart & Circular Infrastructure" },
+    { "id": 6, "goal": "Ecology restored", "metric": "Dunes/casuarina/mangrove restored", "target": "≥ 50", "unit": "ha", "pillar": "Living Shoreline" },
+    { "id": 7, "goal": "Local livelihoods", "metric": "Direct + indirect jobs (≥40% women)", "target": "≥ 5000", "unit": "jobs", "pillar": "Inclusive Livelihoods" },
+    { "id": 8, "goal": "Year-round tourism", "metric": "Rise in overnight visitors", "target": "Measurable YoY growth", "unit": "trend", "pillar": "Blue-Green Economy" },
+    { "id": 9, "goal": "Climate resilience", "metric": "Critical assets above 2050 surge line", "target": "100", "unit": "%", "pillar": "Resilient & Transparent Governance" },
+    { "id": 10, "goal": "Transparency", "metric": "Plans/budgets/environmental data published", "target": "100", "unit": "%", "pillar": "Resilient & Transparent Governance" }
+  ]
+}

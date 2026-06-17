@@ -1,0 +1,52 @@
+{
+  "corridor": "Bapatla–Chirala Coastal Corridor",
+  "district": "Bapatla",
+  "state": "Andhra Pradesh",
+  "country": "India",
+  "sea": "Bay of Bengal",
+  "coastlineContext": {
+    "stateCoastlineKm": 974,
+    "stateCoastlineRankIndia": 3,
+    "note": "Andhra Pradesh coastline figures vary by source between ~974 and ~1053 km."
+  },
+  "beaches": [
+    {
+      "id": "suryalanka",
+      "name": "Suryalanka Beach (Bapatla Beach)",
+      "node": "A — Gateway",
+      "nearestTown": "Bapatla",
+      "distanceKm": 9,
+      "highlights": ["Sunrise & sunset views", "Swimming", "Resorts", "Dolphin sightings offshore"],
+      "role": "Flagship Blue Flag beach, arrival and civic node"
+    },
+    {
+      "id": "vodarevu",
+      "name": "Vodarevu Beach",
+      "node": "C — Marine & Watersports",
+      "nearestTown": "Chirala",
+      "distanceKm": 8,
+      "highlights": ["Watersports", "Fishing", "High footfall"],
+      "role": "Watersports, fishing-harbour linkage, seafood culinary district"
+    },
+    {
+      "id": "ramapuram",
+      "name": "Ramapuram Beach",
+      "node": "D — Quiet Coast",
+      "nearestTown": "Chirala",
+      "distanceKm": 10,
+      "highlights": ["One of the cleanest, most peaceful beaches", "Low density"],
+      "role": "Conservation-led, research & retreat node"
+    }
+  ],
+  "connectivity": {
+    "fromGuntur": "~1 hour",
+    "fromVijayawada": "~2 hours",
+    "rail": "Bapatla & Chirala stations",
+    "ports": ["Nizampatnam (Bapatla district)", "Ramayapatnam (nearby)"]
+  },
+  "sources": [
+    "https://bapatla.ap.gov.in/tourism/",
+    "https://bapatla.ap.gov.in/places-of-interest/",
+    "https://en.wikipedia.org/wiki/Coastline_of_Andhra_Pradesh"
+  ]
+}

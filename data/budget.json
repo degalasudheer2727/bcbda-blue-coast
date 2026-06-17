@@ -1,0 +1,42 @@
+{
+  "currency": "INR",
+  "unit": "crore",
+  "totalInvestment": 2500,
+  "horizonYears": 10,
+  "visionYear": 2047,
+  "byPhase": [
+    { "phase": 1, "name": "Foundations & proof beach", "years": "Years 1–3", "amount": 1500, "share": 60 },
+    { "phase": 2, "name": "Build-out", "years": "Years 4–6", "amount": 500, "share": 20 },
+    { "phase": 3, "name": "Maturity & Resilience", "years": "Years 7–10", "amount": 500, "share": 20 }
+  ],
+  "bySector": [
+    { "sector": "Coastal protection & living shoreline", "amount": 350, "share": 14 },
+    { "sector": "Mobility, parking, helipads & green-blue spine", "amount": 350, "share": 14 },
+    { "sector": "Beach development & beachfront parks", "amount": 300, "share": 12 },
+    { "sector": "Renewable energy, micro-grid & EV charging (PPP)", "amount": 250, "share": 10 },
+    { "sector": "Water, sanitation & zero-discharge", "amount": 250, "share": 10 },
+    { "sector": "Community livelihoods, housing & skilling", "amount": 220, "share": 8.8 },
+    { "sector": "Waterfront markets & culinary", "amount": 180, "share": 7.2 },
+    { "sector": "Land, planning, governance & contingency", "amount": 180, "share": 7.2 },
+    { "sector": "Water sports & recreation", "amount": 150, "share": 6 },
+    { "sector": "Waste management & beach cleaning", "amount": 150, "share": 6 },
+    { "sector": "Digital, resilience, early-warning & VR twin", "amount": 120, "share": 4.8 }
+  ],
+  "byFinancing": [
+    { "source": "State & Central schemes (Tourism, Sagarmala, NCRMP, climate)", "amount": 1100, "share": 44 },
+    { "source": "Private capital & PPP concessions (resorts, watersports, EV, markets)", "amount": 900, "share": 36 },
+    { "source": "Green / municipal bonds & climate finance", "amount": 300, "share": 12 },
+    { "source": "Land-value capture & own-revenue reinvestment", "amount": 200, "share": 8 }
+  ],
+  "targets": {
+    "directIndirectJobs": 5000,
+    "womenSharePct": 40,
+    "omSelfSufficiencyByYear": 6,
+    "renewableSharePct": 90,
+    "annualVisitorsTargetLakh": 30
+  },
+  "sources": [
+    "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2025.1516241/full",
+    "https://www.iasgyan.in/daily-current-affairs/groynes"
+  ]
+}

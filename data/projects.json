@@ -1,0 +1,18 @@
+{
+  "pipeline": [
+    { "id": "P1", "name": "Suryalanka Blue Flag Beach & Promenade", "node": "A", "pillar": "Pristine & Safe Coast", "phase": 1, "status": "proposed" },
+    { "id": "P2", "name": "Corridor Solar–Wind Micro-grid", "node": "All", "pillar": "Smart & Circular Infrastructure", "phase": 1, "status": "proposed" },
+    { "id": "P3", "name": "Dune & Casuarina Living-Shoreline Restoration", "node": "A–B", "pillar": "Living Shoreline", "phase": 1, "status": "proposed" },
+    { "id": "P4", "name": "Integrated Waste-to-Resource & Plastic-Free Beaches", "node": "All", "pillar": "Smart & Circular Infrastructure", "phase": 1, "status": "proposed" },
+    { "id": "P5", "name": "Visitor Gateway & Mobility Hub", "node": "A", "pillar": "Resilient & Transparent Governance", "phase": 1, "status": "proposed" },
+    { "id": "P6", "name": "Estuary Mangrove & Blue-Carbon Reserve", "node": "B–C", "pillar": "Living Shoreline", "phase": 2, "status": "proposed" },
+    { "id": "P7", "name": "Vodarevu Watersports & Seafood Culinary District", "node": "C", "pillar": "Blue-Green Economy", "phase": 2, "status": "proposed" },
+    { "id": "P8", "name": "Community Cooperative & Skilling Campus", "node": "C–D", "pillar": "Inclusive Livelihoods", "phase": 2, "status": "proposed" },
+    { "id": "P9", "name": "Eco-Resort & Wellness Concessions (PPP)", "node": "B", "pillar": "Blue-Green Economy", "phase": 2, "status": "proposed" },
+    { "id": "P10", "name": "Green-Blue Spine (NMT + e-shuttle)", "node": "All", "pillar": "Smart & Circular Infrastructure", "phase": 2, "status": "proposed" },
+    { "id": "P11", "name": "Tertiary Wastewater Reuse & Zero-Discharge System", "node": "All", "pillar": "Smart & Circular Infrastructure", "phase": 3, "status": "proposed" },
+    { "id": "P12", "name": "Ramapuram Conservation & Research Station", "node": "D", "pillar": "Living Shoreline", "phase": 3, "status": "proposed" },
+    { "id": "P13", "name": "Coastal Resilience & Early-Warning System", "node": "All", "pillar": "Resilient & Transparent Governance", "phase": 3, "status": "proposed" },
+    { "id": "P14", "name": "Digital Twin & Open Coastal Data Platform", "node": "All", "pillar": "Resilient & Transparent Governance", "phase": 3, "status": "proposed" }
+  ]
+}

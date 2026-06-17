@@ -1,0 +1,17 @@
+# Open-source web scraping & content-extraction toolkit (no paid services)
+
+# --- Lightweight crawler (scrape_references.py) ---
+requests>=2.32
+beautifulsoup4>=4.12
+lxml>=5.2
+trafilatura>=1.12
+pandas>=2.2
+PyYAML>=6.0
+
+# --- LLM-powered, prompt-driven scraping (scrapegraph_example.py) ---
+# ScrapeGraphAI: https://github.com/ScrapeGraphAI/Scrapegraph-ai
+# Install in a CLEAN virtualenv to avoid langchain version conflicts.
+# `pip install scrapegraphai` pulls a consistent langchain stack on its own.
+scrapegraphai>=1.76
+playwright>=1.45        # then run once:  playwright install chromium
+# Optional local LLM backend (no API key): install Ollama from https://ollama.com

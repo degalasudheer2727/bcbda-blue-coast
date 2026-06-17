@@ -1,0 +1,9 @@
+# Public reference sources for the BCBDA master plan.
+# Add/remove URLs you are permitted to access. The scraper honours robots.txt.
+urls:
+  - https://bapatla.ap.gov.in/tourism/
+  - https://bapatla.ap.gov.in/places-of-interest/
+  - https://bapatla.ap.gov.in/tourist-place/suryalanka-beach/
+  - https://bapatla.ap.gov.in/tourist-place/vodarevu-beach/
+  - https://en.wikipedia.org/wiki/Coastline_of_Andhra_Pradesh
+  - https://en.wikipedia.org/wiki/Ramayapatnam_Port
