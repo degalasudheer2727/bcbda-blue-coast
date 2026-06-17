@@ -1,10 +1,10 @@
 /**
- * BCBDA mark — a sunrise over the sea.
- * "Suryalanka" (the flagship beach) means "land of the sun"; the rising sun over
- * waves captures the vision: a new dawn for the coast, the sea as the asset,
- * and warm light (tourism/energy) meeting clean water (ecology).
+ * BCBDA mark — v2 ("2036" refresh).
+ * A refined horizon mark: a gradient sun rising over a single clean wave inside a
+ * softly-rounded "lens" — the coast seen through a forward-looking lens.
+ * Original interpretation; uses NO official State Emblem (abstract only).
  */
-export default function Logo({ size = 36 }: { size?: number }) {
+export default function Logo({ size = 38 }: { size?: number }) {
   return (
     <svg
       className="mark"
@@ -17,43 +17,52 @@ export default function Logo({ size = 36 }: { size?: number }) {
       aria-label="BCBDA logo — sunrise over the sea"
     >
       <defs>
-        <linearGradient id="bcbdaBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#0d7a86" />
-          <stop offset="1" stopColor="#0a9396" />
+        <linearGradient id="bcbdaBg2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#0a9396" />
+          <stop offset="0.55" stopColor="#0a5566" />
+          <stop offset="1" stopColor="#04262f" />
         </linearGradient>
-        <linearGradient id="bcbdaSun" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#ffd27f" />
+        <linearGradient id="bcbdaSun2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#ffd98a" />
           <stop offset="1" stopColor="#e9785a" />
         </linearGradient>
+        <clipPath id="bcbdaClip2">
+          <rect width="48" height="48" rx="13" />
+        </clipPath>
       </defs>
 
-      <rect width="48" height="48" rx="12" fill="url(#bcbdaBg)" />
+      <g clipPath="url(#bcbdaClip2)">
+        <rect width="48" height="48" rx="13" fill="url(#bcbdaBg2)" />
 
-      {/* sun rays */}
-      <g stroke="url(#bcbdaSun)" strokeWidth="1.7" strokeLinecap="round">
-        <line x1="24" y1="13.5" x2="24" y2="10" />
-        <line x1="17.7" y1="15.4" x2="15.8" y2="13.1" />
-        <line x1="30.3" y1="15.4" x2="32.2" y2="13.1" />
-        <line x1="13.6" y1="20.3" x2="11" y2="19" />
-        <line x1="34.4" y1="20.3" x2="37" y2="19" />
+        {/* halo ring around the sun */}
+        <circle cx="24" cy="26" r="11.5" stroke="rgba(255,255,255,0.22)" strokeWidth="1.2" />
+
+        {/* clean rays */}
+        <g stroke="url(#bcbdaSun2)" strokeWidth="1.8" strokeLinecap="round">
+          <line x1="24" y1="9" x2="24" y2="6.2" />
+          <line x1="15.5" y1="11.4" x2="14" y2="9.2" />
+          <line x1="32.5" y1="11.4" x2="34" y2="9.2" />
+        </g>
+
+        {/* rising sun disc (clipped by horizon) */}
+        <circle cx="24" cy="26" r="7.6" fill="url(#bcbdaSun2)" />
+        <rect x="6" y="26.4" width="36" height="16" fill="url(#bcbdaBg2)" />
+
+        {/* a single elegant wave + a quieter echo */}
+        <path
+          d="M5 30c3.4 0 3.4-2.6 6.8-2.6S15.2 30 18.6 30s3.4-2.6 6.8-2.6S28.8 30 32.2 30s3.4-2.6 6.8-2.6S42.4 30 45 30"
+          stroke="#ffffff"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M5 36c3.4 0 3.4-2.3 6.8-2.3S15.2 36 18.6 36s3.4-2.3 6.8-2.3S28.8 36 32.2 36s3.4-2.3 6.8-2.3S42.4 36 45 36"
+          stroke="#7fdbd0"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          opacity="0.85"
+        />
       </g>
-
-      {/* rising sun (top dome on the horizon) */}
-      <path d="M16 27 A8 8 0 0 1 32 27 Z" fill="url(#bcbdaSun)" />
-
-      {/* sea */}
-      <path
-        d="M5 31.5c3 0 3-2.3 6-2.3s3 2.3 6 2.3 3-2.3 6-2.3 3 2.3 6 2.3 3-2.3 6-2.3 3 2.3 6 2.3"
-        stroke="#ffffff"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M5 37c3 0 3-2.1 6-2.1s3 2.1 6 2.1 3-2.1 6-2.1 3 2.1 6 2.1 3-2.1 6-2.1 3 2.1 6 2.1"
-        stroke="#d9f2ef"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
     </svg>
   );
 }

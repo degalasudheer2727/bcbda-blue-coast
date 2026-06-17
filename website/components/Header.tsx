@@ -9,8 +9,8 @@ const links = [
   { href: "/beaches", label: "Beaches" },
   { href: "/master-plan", label: "Master Plan" },
   { href: "/vision", label: "Vision" },
+  { href: "/future", label: "2036" },
   { href: "/news", label: "News" },
-  { href: "/culture", label: "Culture" },
   { href: "/experience", label: "3D / VR" },
 ];
 
@@ -54,7 +54,7 @@ export default function Header() {
       </div>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        {[...links, { href: "/infrastructure", label: "Infrastructure" }, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
+        {[...links, { href: "/culture", label: "Culture" }, { href: "/infrastructure", label: "Infrastructure" }, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
         <Link href="/get-involved" onClick={() => setOpen(false)}>Get Involved</Link>
