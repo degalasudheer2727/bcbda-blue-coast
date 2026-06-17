@@ -16,8 +16,10 @@ export default function Footer() {
           <div>
             <h4>Explore</h4>
             <ul className="footer-links">
+              <li><Link href="/beaches">Beaches</Link></li>
               <li><Link href="/vision">Vision &amp; Charter</Link></li>
               <li><Link href="/master-plan">Master Plan</Link></li>
+              <li><Link href="/infrastructure">Infrastructure</Link></li>
               <li><Link href="/news">Latest Developments</Link></li>
               <li><Link href="/culture">Culture &amp; Highlights</Link></li>
               <li><Link href="/budget">Investment Case</Link></li>

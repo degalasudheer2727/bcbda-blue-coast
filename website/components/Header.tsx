@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 const links = [
-  { href: "/vision", label: "Vision" },
+  { href: "/beaches", label: "Beaches" },
   { href: "/master-plan", label: "Master Plan" },
-  { href: "/infrastructure", label: "Infrastructure" },
+  { href: "/vision", label: "Vision" },
   { href: "/news", label: "News" },
   { href: "/culture", label: "Culture" },
   { href: "/experience", label: "3D / VR" },
@@ -54,7 +54,7 @@ export default function Header() {
       </div>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        {[...links, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
+        {[...links, { href: "/infrastructure", label: "Infrastructure" }, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
         <Link href="/get-involved" onClick={() => setOpen(false)}>Get Involved</Link>
