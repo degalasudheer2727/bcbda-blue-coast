@@ -5,8 +5,9 @@ export const SITE = {
   name: "Bapatla–Chirala Beach Development Authority",
   shortName: "BCBDA",
   tagline: "A self-sustaining, eco-first coastal corridor on the Bay of Bengal.",
-  status: "Proposed authority · Draft vision v0.1",
-  repoUrl: "https://github.com/your-org/bcbda",
+  status: "Proposed authority · Draft vision",
+  url: "https://bcbda-blue-coast.vercel.app",
+  repoUrl: "https://github.com/degalasudheer2727/bcbda-blue-coast",
 };
 
 export const VISION = {
