@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollFX from "@/components/ScrollFX";
 import UpdatesTicker, { type TickerItem } from "@/components/UpdatesTicker";
+import MobileNav from "@/components/MobileNav";
 import { SITE } from "@/lib/site-data";
 import { getNews } from "@/lib/content";
 import { getCoverage } from "@/lib/coverage";
@@ -117,6 +118,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <MobileNav />
       </body>
     </html>
   );

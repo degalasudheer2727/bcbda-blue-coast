@@ -5,8 +5,7 @@ import { BEACHES } from "@/lib/beaches";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "", "/beaches", "/experiences", "/stays", "/plan", "/about", "/future",
-    "/vision", "/master-plan", "/infrastructure", "/news", "/culture",
-    "/experience", "/budget", "/runbook", "/projects", "/sustainability", "/get-involved", "/governance", "/credits",
+    "/news", "/culture", "/experience", "/get-involved", "/credits",
     ...BEACHES.map((b) => `/beaches/${b.slug}`),
   ];
   const now = new Date();
