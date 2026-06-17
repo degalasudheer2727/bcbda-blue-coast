@@ -180,7 +180,7 @@ p { text-wrap: pretty; }
 
 /* ---- Header (glass, scroll-aware) ----------------------------------- */
 .site-header {
-  position: sticky; top: 0; z-index: 60;
+  position: sticky; top: 40px; z-index: 56;
   background: rgba(251, 248, 241, 0.72);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
@@ -404,6 +404,38 @@ body.is-scrolled .site-header {
   margin: 26px 0; color: var(--ocean-900); box-shadow: var(--shadow-xs);
 }
 
+/* ---- Live updates ticker -------------------------------------------- */
+.ticker {
+  position: sticky; top: 0; z-index: 55;
+  display: flex; align-items: center; gap: 0;
+  height: 40px; color: #fff; font-size: 0.86rem;
+  background: linear-gradient(90deg, var(--ocean-950), var(--ocean-800));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.ticker-live {
+  display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto;
+  height: 100%; padding: 0 14px; font-weight: 800; font-size: 0.72rem;
+  letter-spacing: 0.08em; background: var(--coral); color: #fff;
+}
+.ticker-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: pulse 1.8s infinite; }
+.ticker-viewport { flex: 1 1 auto; overflow: hidden; position: relative; height: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.ticker-marquee { display: flex; width: max-content; height: 100%; animation: tickerScroll var(--ticker-speed, 50s) linear infinite; }
+.ticker:hover .ticker-marquee, .ticker:focus-within .ticker-marquee { animation-play-state: paused; }
+.ticker-track { display: flex; align-items: center; list-style: none; height: 100%; }
+.ticker-item { display: inline-flex; align-items: center; gap: 8px; padding: 0 22px; white-space: nowrap; border-right: 1px solid rgba(255, 255, 255, 0.12); }
+.ticker-item a { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+.ticker-item a:hover { color: #fff; text-decoration: underline; }
+.ticker-tag { font-size: 0.64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--sun); }
+.ticker-all { flex: 0 0 auto; height: 100%; display: inline-flex; align-items: center; padding: 0 14px; font-weight: 700; font-size: 0.76rem; color: #fff; background: rgba(255, 255, 255, 0.10); border-left: 1px solid rgba(255, 255, 255, 0.12); }
+.ticker-all:hover { color: #fff; background: rgba(255, 255, 255, 0.18); }
+@keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 640px) { .ticker-all { display: none; } .ticker-live { padding: 0 10px; } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-marquee { animation: none; width: 100%; overflow-x: auto; }
+  .ticker-marquee > ul[aria-hidden] { display: none; }
+  .ticker-viewport { -webkit-mask-image: none; mask-image: none; }
+}
+
 /* ---- Card media + gallery ------------------------------------------- */
 .card.has-media { padding-top: 0; overflow: hidden; }
 .card-media {
@@ -464,6 +496,22 @@ body.is-scrolled .site-header {
 .source:hover span { transform: translate(2px, -2px); }
 .bg-ocean .source { color: var(--teal-100); }
 .bg-ocean .news-date { color: var(--teal-100); }
+
+/* live media coverage list */
+.coverage-list { list-style: none; display: grid; gap: 0; }
+.coverage-list li { border-top: 1px solid var(--line); }
+.coverage-list li:first-child { border-top: 0; }
+.coverage-list a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
+  padding: 16px 4px; color: var(--ink); transition: color 0.16s ease, padding-left 0.16s ease;
+}
+.coverage-list a:hover { color: var(--ocean-700); padding-left: 8px; }
+.cov-title { font-weight: 600; }
+.cov-meta { flex: 0 0 auto; font-size: 0.8rem; color: var(--on-surface-soft); font-weight: 600; white-space: nowrap; }
+@media (max-width: 560px) {
+  .coverage-list a { flex-direction: column; gap: 4px; }
+  .cov-meta { white-space: normal; }
+}
 
 /* ---- Footer --------------------------------------------------------- */
 .site-footer { background: var(--ocean-950); color: rgba(255, 255, 255, 0.78); padding: 64px 0 36px; }
