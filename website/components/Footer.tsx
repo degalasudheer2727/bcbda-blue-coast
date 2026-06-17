@@ -17,6 +17,7 @@ export default function Footer() {
             <h4>Explore</h4>
             <ul className="footer-links">
               <li><Link href="/beaches">Beaches</Link></li>
+              <li><Link href="/stays">Stays &amp; Hospitality</Link></li>
               <li><Link href="/vision">Vision &amp; Charter</Link></li>
               <li><Link href="/master-plan">Master Plan</Link></li>
               <li><Link href="/infrastructure">Infrastructure</Link></li>

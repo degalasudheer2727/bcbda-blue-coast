@@ -29,12 +29,17 @@
   --line-strong: rgba(7, 59, 76, 0.17);
   --white: #ffffff;
 
-  /* ---- Semantic surfaces (light theme) ------------------------------- */
-  --bg: #fbf8f1;
+  /* ---- Semantic surfaces (cool-breeze / glass) ----------------------- */
+  --bg: #eef5f6;
   --surface: #ffffff;
-  --surface-2: var(--sand-50);
+  --surface-2: #e7f1f2;
   --on-surface: var(--ink);
   --on-surface-soft: var(--ink-soft);
+  /* glassmorphism tokens */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-blur: saturate(160%) blur(16px);
 
   /* ---- Elevation — layered, ocean-tinted ----------------------------- */
   --shadow-xs: 0 1px 2px rgba(7, 59, 76, 0.06);
@@ -44,9 +49,9 @@
   --shadow-cta: 0 8px 22px -6px rgba(10, 147, 150, 0.45);
 
   /* ---- Shape & motion ------------------------------------------------ */
-  --radius-xl: 26px;
-  --radius: 18px;
-  --radius-sm: 12px;
+  --radius-xl: 30px;
+  --radius: 22px;
+  --radius-sm: 15px;
   --radius-pill: 999px;
   --maxw: 1160px;
 
@@ -76,6 +81,17 @@ body {
   overflow-x: hidden;
   font-feature-settings: "kern", "liga", "calt";
 }
+
+/* cool-breeze backdrop — gives glass surfaces something soft to frost against */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60vw 52vh at 82% -10%, rgba(43, 177, 174, 0.16), transparent 60%),
+    radial-gradient(54vw 44vh at -5% 102%, rgba(120, 195, 255, 0.16), transparent 60%),
+    radial-gradient(46vw 42vh at 45% 48%, rgba(217, 242, 239, 0.45), transparent 72%);
+}
+/* all decorative wave dividers follow the page background colour */
+.wave-divider path { fill: var(--bg); }
 
 a { color: var(--ocean-700); text-decoration: none; transition: color 0.16s ease; }
 a:hover { color: var(--ocean-600); }
@@ -181,14 +197,14 @@ p { text-wrap: pretty; }
 /* ---- Header (glass, scroll-aware) ----------------------------------- */
 .site-header {
   position: sticky; top: 40px; z-index: 56;
-  background: rgba(251, 248, 241, 0.72);
+  background: rgba(238, 245, 246, 0.72);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid transparent;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 body.is-scrolled .site-header {
-  background: rgba(251, 248, 241, 0.9);
+  background: rgba(238, 245, 246, 0.9);
   border-bottom-color: var(--line);
   box-shadow: 0 6px 24px -14px rgba(7, 59, 76, 0.4);
 }
@@ -230,7 +246,7 @@ body.is-scrolled .site-header {
 
 .mobile-menu {
   display: none; flex-direction: column; gap: 4px; padding: 12px 24px 24px;
-  border-bottom: 1px solid var(--line); background: rgba(251, 248, 241, 0.98);
+  border-bottom: 1px solid var(--line); background: rgba(238, 245, 246, 0.98);
   backdrop-filter: blur(16px);
 }
 .mobile-menu a { padding: 14px 15px; border-radius: 13px; font-weight: 650; color: var(--ink); }
@@ -290,8 +306,9 @@ body.is-scrolled .site-header {
 /* ---- Stat strip ----------------------------------------------------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .stat {
-  text-align: center; background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 28px 16px; box-shadow: var(--shadow-xs);
+  text-align: center; background: var(--glass-bg); border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius); padding: 28px 16px; box-shadow: var(--shadow-sm);
   transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s ease;
 }
 .stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
@@ -310,9 +327,10 @@ body.is-scrolled .site-header {
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 .card {
-  position: relative; background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow-xs);
-  transition: transform 0.24s var(--ease), box-shadow 0.24s var(--ease), border-color 0.24s ease;
+  position: relative; background: var(--glass-bg); border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow-sm);
+  transition: transform 0.24s var(--ease), box-shadow 0.24s var(--ease), border-color 0.24s ease, background 0.24s ease;
 }
 .card::before { /* accent rail */
   content: ""; position: absolute; left: 0; top: 20px; bottom: 20px; width: 3px; border-radius: 3px;
@@ -342,7 +360,7 @@ body.is-scrolled .site-header {
 .tag--p3 { background: #fdeae3; color: var(--coral); }
 
 /* ---- Section backgrounds ------------------------------------------- */
-.bg-sand { background: linear-gradient(180deg, var(--sand-100), var(--sand-50)); }
+.bg-sand { background: linear-gradient(180deg, var(--surface-2), var(--bg)); }
 .bg-ocean {
   position: relative; isolation: isolate;
   background:
@@ -624,6 +642,11 @@ body.is-scrolled .site-header {
 .source:hover span { transform: translate(2px, -2px); }
 .bg-ocean .source { color: var(--teal-100); }
 .bg-ocean .news-date { color: var(--teal-100); }
+
+/* stays & hospitality */
+.stay-loc { font-size: 0.85rem; font-weight: 650; color: var(--ocean-700); margin-bottom: 8px; }
+.stay-price { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--ocean-700); margin-top: 10px; font-feature-settings: "tnum" 1; }
+.stay-card--muted { opacity: 0.9; }
 
 /* live media coverage list */
 .coverage-list { list-style: none; display: grid; gap: 0; }

@@ -54,7 +54,7 @@ export default function Header() {
       </div>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        {[...links, { href: "/culture", label: "Culture" }, { href: "/infrastructure", label: "Infrastructure" }, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
+        {[...links, { href: "/stays", label: "Stays" }, { href: "/culture", label: "Culture" }, { href: "/infrastructure", label: "Infrastructure" }, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
         <Link href="/get-involved" onClick={() => setOpen(false)}>Get Involved</Link>

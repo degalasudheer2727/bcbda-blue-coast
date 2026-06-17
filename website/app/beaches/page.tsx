@@ -61,6 +61,9 @@ export default function BeachesPage() {
               );
             })}
           </div>
+          <div className="center" style={{ marginTop: 30 }}>
+            <Link href="/stays" className="btn btn--outline">Where to stay — resorts &amp; hotels →</Link>
+          </div>
           <p className="muted" style={{ marginTop: 26, fontSize: "0.82rem" }}>
             Hotel and land prices shown on each beach page are <strong>indicative</strong>,
             drawn from public listings — not official rates. Only verified properties
