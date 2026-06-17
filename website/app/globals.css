@@ -454,6 +454,48 @@ body.is-scrolled .site-header {
   .ticker-viewport { -webkit-mask-image: none; mask-image: none; }
 }
 
+/* ---- Tourism: destination hero, quickbar, experiences, promos ------- */
+.dest-hero {
+  position: relative; min-height: 88vh; min-height: 88dvh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden; isolation: isolate; color: #fff;
+}
+.dest-hero-body { padding: 40px 24px 4px; position: relative; z-index: 1; }
+.dest-hero-body h1 { color: #fff; font-size: clamp(2.8rem, 6.6vw, 5rem); max-width: 15ch; letter-spacing: -0.03em; }
+
+.quickbar {
+  position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; margin: 22px 0 30px; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.quickbar > div { background: rgba(4, 38, 47, 0.32); padding: 15px 18px; display: flex; flex-direction: column; gap: 2px; }
+.qb-k { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.72); font-weight: 700; }
+.qb-v { font-weight: 700; color: #fff; font-size: 1.02rem; }
+
+.exp-where { font-size: 0.74rem; font-weight: 700; color: var(--ocean-600); text-transform: uppercase; letter-spacing: 0.04em; }
+.exp-card h3 { font-size: 1.05rem; }
+
+.split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.promo {
+  position: relative; overflow: hidden; border-radius: var(--radius-xl); padding: 40px;
+  color: #fff; display: flex; flex-direction: column; gap: 8px; min-height: 240px;
+  justify-content: flex-end; isolation: isolate; box-shadow: var(--shadow-md);
+  transition: transform 0.24s var(--ease), box-shadow 0.24s var(--ease);
+}
+.promo:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.promo h3 { color: #fff; font-size: 1.6rem; }
+.promo p { color: rgba(255, 255, 255, 0.88); max-width: 42ch; }
+.promo-go { margin-top: 10px; font-weight: 700; color: #fff; }
+.promo--stays { background: radial-gradient(120% 100% at 90% 0%, rgba(43,177,174,0.55), transparent 55%), linear-gradient(150deg, var(--ocean-700), var(--ocean-950)); }
+.promo--plan { background: radial-gradient(120% 100% at 10% 0%, rgba(92,199,182,0.5), transparent 55%), linear-gradient(150deg, var(--ocean-600), var(--ocean-800)); }
+
+@media (max-width: 760px) {
+  .split-2 { grid-template-columns: 1fr; }
+  .dest-hero { min-height: 78vh; min-height: 78dvh; }
+}
+@media (max-width: 620px) { .quickbar { grid-template-columns: repeat(2, 1fr); } }
+
 /* ---- Future / 2036 (immersive dark scope) --------------------------- */
 .future { background: var(--ocean-950); color: rgba(255, 255, 255, 0.86); }
 .future h2, .future h3 { color: #fff; }

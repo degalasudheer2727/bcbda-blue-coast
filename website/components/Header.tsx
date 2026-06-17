@@ -7,10 +7,17 @@ import Logo from "./Logo";
 
 const links = [
   { href: "/beaches", label: "Beaches" },
-  { href: "/master-plan", label: "Master Plan" },
-  { href: "/vision", label: "Vision" },
-  { href: "/future", label: "2036" },
+  { href: "/experiences", label: "Experiences" },
+  { href: "/stays", label: "Stays" },
+  { href: "/plan", label: "Plan Your Trip" },
+  { href: "/about", label: "About" },
+];
+
+// Secondary links surfaced in the mobile menu (and the footer).
+const secondary = [
+  { href: "/culture", label: "Culture" },
   { href: "/news", label: "News" },
+  { href: "/future", label: "2036 Vision" },
   { href: "/experience", label: "3D / VR" },
 ];
 
@@ -54,7 +61,7 @@ export default function Header() {
       </div>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        {[...links, { href: "/stays", label: "Stays" }, { href: "/culture", label: "Culture" }, { href: "/infrastructure", label: "Infrastructure" }, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
+        {[...links, ...secondary].map((l) => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
         <Link href="/get-involved" onClick={() => setOpen(false)}>Get Involved</Link>
