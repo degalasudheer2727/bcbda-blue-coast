@@ -30,6 +30,7 @@ export default function Footer() {
             <h4>Participate</h4>
             <ul className="footer-links">
               <li><Link href="/get-involved">Get Involved</Link></li>
+              <li><Link href="/governance">Proposed Governance (Draft)</Link></li>
               <li><Link href="/projects">Project Pipeline</Link></li>
               <li><Link href="/sustainability">Sustainability</Link></li>
               <li><Link href="/admin">Content Studio</Link></li>
