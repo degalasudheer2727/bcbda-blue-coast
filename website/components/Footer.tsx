@@ -18,14 +18,20 @@ export default function Footer() {
             <ul className="footer-links">
               <li><Link href="/vision">Vision &amp; Charter</Link></li>
               <li><Link href="/master-plan">Master Plan</Link></li>
-              <li><Link href="/projects">Project Pipeline</Link></li>
-              <li><Link href="/sustainability">Sustainability</Link></li>
+              <li><Link href="/news">Latest Developments</Link></li>
+              <li><Link href="/culture">Culture &amp; Highlights</Link></li>
+              <li><Link href="/budget">Investment Case</Link></li>
+              <li><Link href="/runbook">Execution Runbook</Link></li>
             </ul>
           </div>
           <div>
             <h4>Participate</h4>
             <ul className="footer-links">
               <li><Link href="/get-involved">Get Involved</Link></li>
+              <li><Link href="/projects">Project Pipeline</Link></li>
+              <li><Link href="/sustainability">Sustainability</Link></li>
+              <li><Link href="/admin">Content Studio</Link></li>
+              <li><Link href="/credits">Image Credits</Link></li>
               <li><a href={SITE.repoUrl}>GitHub Repository</a></li>
             </ul>
           </div>

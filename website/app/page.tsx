@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { SITE, VISION, PILLARS, FACTS, NODES, PHASES, CATALYSTS, BUDGET } from "@/lib/site-data";
+import { getFeaturedNews } from "@/lib/content";
+import { img } from "@/lib/images";
+
+const GALLERY = ["place-vodarevu", "place-suryalanka", "temple", "bhattiprolu"];
+const GALLERY_CAPTION: Record<string, string> = {
+  "place-vodarevu": "The Chirala–Vodarevu shore",
+  "place-suryalanka": "Suryalanka beach, Bapatla",
+  temple: "Bhavanarayana temple, Bapatla",
+  bhattiprolu: "Bhattiprolu’s ancient stupa",
+};
 
 export default function Home() {
+  const latestNews = getFeaturedNews(3);
   return (
     <>
       {/* Hero */}
@@ -41,6 +52,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The coast today — real photos */}
+      <section className="section--tight">
+        <div className="container">
+          <div className="section-head" style={{ marginBottom: 24 }}>
+            <span className="eyebrow">The coast today</span>
+            <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>A real place, with deep roots</h2>
+          </div>
+          <div className="gallery">
+            {GALLERY.map((k) => {
+              const im = img(k);
+              if (!im) return null;
+              return (
+                <figure key={k}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={im.src} alt={im.alt} loading="lazy" decoding="async" />
+                  <figcaption>{GALLERY_CAPTION[k]}</figcaption>
+                </figure>
+              );
+            })}
+          </div>
+          <p className="muted" style={{ marginTop: 14, fontSize: "0.82rem" }}>
+            Photos: Wikimedia Commons (CC / public domain) — see <Link href="/credits">credits</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* Why now — growth catalysts */}
       <section className="section">
         <div className="container">
@@ -58,6 +95,31 @@ export default function Home() {
                 <h3>{c.title}</h3>
                 <p className="muted">{c.body}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest developments */}
+      <section className="section--tight">
+        <div className="container">
+          <div className="meta-row" style={{ justifyContent: "space-between", marginBottom: 26 }}>
+            <div>
+              <span className="eyebrow">Momentum</span>
+              <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>Latest developments</h2>
+            </div>
+            <Link href="/news" className="btn btn--outline">All developments →</Link>
+          </div>
+          <div className="grid grid-3">
+            {latestNews.map((n) => (
+              <Link href="/news" className="card" key={n.slug} style={{ color: "inherit" }}>
+                <div className="meta-row">
+                  <time className="news-date" dateTime={n.date}>{n.dateLabel}</time>
+                  <span className="tag">{n.category}</span>
+                </div>
+                <h3 style={{ marginTop: 12 }}>{n.title}</h3>
+                <p className="muted">{n.body}</p>
+              </Link>
             ))}
           </div>
         </div>

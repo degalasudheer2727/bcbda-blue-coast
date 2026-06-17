@@ -1,0 +1,64 @@
+# BCBDA Content Studio — Sveltia/Decap CMS
+# Editors manage the News & Culture collections here; saves become GitHub commits
+# to /content, which Vercel rebuilds into the live site.
+backend:
+  name: github
+  repo: degalasudheer2727/bcbda-blue-coast
+  branch: main
+  # Production editor login needs a GitHub OAuth flow. Point base_url at your
+  # OAuth handler (a small Vercel/serverless function or a hosted relay). See
+  # CONTENT.md for the one-time setup.
+  # base_url: https://your-oauth-handler.vercel.app
+
+# Lets editors run the studio against the local repo with no OAuth:
+#   npx @sveltia/cms-proxy-server   (then open http://localhost:4319/admin)
+local_backend: true
+
+# All content paths are relative to this site's working directory (website/).
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://website-opal-nine-61.vercel.app
+display_url: https://website-opal-nine-61.vercel.app
+publish_mode: editorial_workflow
+
+collections:
+  - name: news
+    label: "Latest Developments"
+    label_singular: "Development"
+    folder: "content/news"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{dateLabel}} · {{title}}"
+    sortable_fields: [date, title, category]
+    fields:
+      - { name: title, label: "Headline", widget: string }
+      - { name: date, label: "Date", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: dateLabel, label: "Date label (shown on site)", widget: string, hint: "e.g. 'Mar 2025' or '2025 (approx)'" }
+      - name: category
+        label: "Category"
+        widget: select
+        options: ["Tourism", "Connectivity", "Capital Region", "Policy", "Environment", "Update"]
+      - { name: featured, label: "Feature on homepage", widget: boolean, default: false }
+      - { name: source, label: "Source name", widget: string }
+      - { name: sourceUrl, label: "Source URL", widget: string, pattern: ["^https?://", "Must be a valid URL"] }
+      - { name: body, label: "Summary", widget: text, hint: "2–3 factual sentences." }
+
+  - name: culture
+    label: "Culture & Highlights"
+    label_singular: "Highlight"
+    folder: "content/culture"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{order}} · {{name}}"
+    sortable_fields: [order, name, category]
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - name: category
+        label: "Category"
+        widget: select
+        options: ["Beach", "Temple & Heritage", "Craft", "Cuisine", "Community", "Nearby"]
+      - { name: order, label: "Sort order", widget: number, value_type: int, default: 50 }
+      - { name: source, label: "Source name", widget: string }
+      - { name: sourceUrl, label: "Source URL", widget: string, pattern: ["^https?://", "Must be a valid URL"] }
+      - { name: body, label: "Description", widget: text }

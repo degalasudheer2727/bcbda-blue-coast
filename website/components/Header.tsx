@@ -2,19 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 const links = [
   { href: "/vision", label: "Vision" },
   { href: "/master-plan", label: "Master Plan" },
   { href: "/infrastructure", label: "Infrastructure" },
+  { href: "/news", label: "News" },
+  { href: "/culture", label: "Culture" },
   { href: "/experience", label: "3D / VR" },
-  { href: "/budget", label: "Investment" },
-  { href: "/runbook", label: "Runbook" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
   return (
     <header className="site-header">
       <div className="container nav">
@@ -28,7 +32,13 @@ export default function Header() {
 
         <nav className="nav-links" aria-label="Primary">
           {links.map((l) => (
-            <Link key={l.href} href={l.href}>{l.label}</Link>
+            <Link
+              key={l.href}
+              href={l.href}
+              aria-current={isActive(l.href) ? "page" : undefined}
+            >
+              {l.label}
+            </Link>
           ))}
           <Link href="/get-involved" className="cta">Get Involved</Link>
         </nav>
@@ -44,7 +54,7 @@ export default function Header() {
       </div>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        {links.map((l) => (
+        {[...links, { href: "/budget", label: "Investment" }, { href: "/runbook", label: "Runbook" }].map((l) => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
         <Link href="/get-involved" onClick={() => setOpen(false)}>Get Involved</Link>

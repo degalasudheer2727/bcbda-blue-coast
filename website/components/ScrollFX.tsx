@@ -20,6 +20,8 @@ export default function ScrollFX() {
       const h = document.documentElement;
       const max = h.scrollHeight - h.clientHeight;
       bar.style.width = max > 0 ? `${(h.scrollTop / max) * 100}%` : "0%";
+      // elevate the sticky header once the page is scrolled
+      document.body.classList.toggle("is-scrolled", h.scrollTop > 8);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

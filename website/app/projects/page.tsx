@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import { PROJECTS, PHASES } from "@/lib/site-data";
+import Media from "@/components/Media";
 
 export const metadata: Metadata = {
   title: "Project Pipeline",
   description: "The 14 flagship projects of the Bapatla–Chirala corridor, phased across ten years.",
+};
+
+// One representative image per project (real area photos where they exist,
+// otherwise illustrative themes — see lib/images.ts).
+const PROJECT_IMG: Record<string, string> = {
+  P1: "place-suryalanka", P2: "solar", P3: "dunes", P4: "waste", P5: "mobility",
+  P6: "mangrove", P7: "seafood", P8: "skilling", P9: "wellness", P10: "cycling",
+  P11: "water-treatment", P12: "research", P13: "warning", P14: "digital",
 };
 
 export default function ProjectsPage() {
@@ -35,7 +44,8 @@ export default function ProjectsPage() {
             </div>
             <div className="grid grid-3" style={{ marginTop: 18 }}>
               {PROJECTS.filter((p) => p.phase === ph.n).map((p) => (
-                <div className="card" key={p.id}>
+                <div className="card has-media" key={p.id}>
+                  <Media k={PROJECT_IMG[p.id]} />
                   <span className={`tag tag--p${p.phase}`}>{p.id} · Node {p.node}</span>
                   <h3 style={{ marginTop: 10 }}>{p.name}</h3>
                   <p className="muted">{p.pillar}</p>
