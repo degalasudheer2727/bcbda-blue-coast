@@ -8,7 +8,6 @@ import UpdatesTicker, { type TickerItem } from "@/components/UpdatesTicker";
 import MobileNav from "@/components/MobileNav";
 import { SITE } from "@/lib/site-data";
 import { getNews } from "@/lib/content";
-import { getCoverage } from "@/lib/coverage";
 
 // Display: Fraunces — an editorial, optical-sized serif for civic authority + warmth.
 const fraunces = Fraunces({
@@ -91,19 +90,12 @@ const jsonLd = {
   ],
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // Build the live ticker from CMS-curated developments + auto-fetched coverage.
-  const news = getNews().slice(0, 5);
-  const coverage = await getCoverage(10);
-  const tickerItems: TickerItem[] = [
-    ...news.map((n) => ({ label: n.title, href: "/news", tag: n.category })),
-    ...coverage.map((c) => ({
-      label: `${c.title} — ${c.source}`,
-      href: c.url,
-      tag: c.dateLabel || "Coverage",
-      external: true,
-    })),
-  ];
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Static ticker seed from CMS developments (fast, no fetch → instant client
+  // navigation). The ticker fetches live media coverage on the client itself.
+  const tickerItems: TickerItem[] = getNews()
+    .slice(0, 6)
+    .map((n) => ({ label: n.title, href: "/news", tag: n.category }));
 
   return (
     <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`}>

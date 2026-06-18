@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export type TickerItem = {
@@ -9,18 +10,44 @@ export type TickerItem = {
   external?: boolean;
 };
 
+type Coverage = { title: string; source: string; url: string; dateLabel?: string };
+
 // A continuously-scrolling "live updates" bulletin under the header.
 // - The "LIVE" badge is a link to /news — a reliable, stationary tap target on
 //   touch devices (where the moving marquee items can't be tapped).
 // - Pauses on hover AND on touch-press (so links are reachable).
 // - Respects prefers-reduced-motion (CSS turns the marquee into a scroll strip).
 export default function UpdatesTicker({ items }: { items: TickerItem[] }) {
-  if (!items.length) return null;
-  const speed = Math.max(28, Math.min(90, items.length * 7)); // seconds per loop
+  // Live media coverage is fetched on the client so the page shell stays static.
+  const [live, setLive] = useState<TickerItem[]>([]);
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/coverage")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((cov: Coverage[]) => {
+        if (!alive || !Array.isArray(cov)) return;
+        setLive(
+          cov.map((c) => ({
+            label: `${c.title} — ${c.source}`,
+            href: c.url,
+            tag: c.dateLabel || "Coverage",
+            external: true,
+          }))
+        );
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const all = [...items, ...live];
+  if (!all.length) return null;
+  const speed = Math.max(28, Math.min(90, all.length * 7)); // seconds per loop
 
   const Row = ({ ariaHidden = false }: { ariaHidden?: boolean }) => (
     <ul className="ticker-track" aria-hidden={ariaHidden || undefined}>
-      {items.map((it, i) => (
+      {all.map((it, i) => (
         <li key={`${it.href}-${i}`} className="ticker-item">
           {it.tag && <span className="ticker-tag">{it.tag}</span>}
           {it.external ? (
