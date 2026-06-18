@@ -472,7 +472,6 @@ body.is-scrolled .site-header {
   .mobnav-item svg { width: 23px; height: 23px; }
   .mobnav-item.active { color: var(--ocean-700); background: rgba(10, 147, 150, 0.08); }
   .mobnav-item:active { transform: scale(0.94); }
-  main { padding-bottom: 66px; }
 }
 
 /* ---- Tabs + accordion (consolidated About) -------------------------- */
@@ -820,6 +819,8 @@ body.is-scrolled .site-header {
 @media (max-width: 760px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
+  /* clear the fixed mobile bottom-nav so it never covers footer info */
+  .site-footer { padding-bottom: calc(34px + 82px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 640px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }

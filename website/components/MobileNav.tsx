@@ -14,8 +14,8 @@ const ICONS: Record<string, React.ReactNode> = {
 const ITEMS = [
   { href: "/", label: "Home", icon: "home", match: (p: string) => p === "/" },
   { href: "/beaches", label: "Beaches", icon: "beach", match: (p: string) => p.startsWith("/beaches") },
-  { href: "/experiences", label: "Do", icon: "exp", match: (p: string) => p.startsWith("/experiences") },
-  { href: "/stays", label: "Stay", icon: "stay", match: (p: string) => p.startsWith("/stays") },
+  { href: "/experiences", label: "Explore", icon: "exp", match: (p: string) => p.startsWith("/experiences") },
+  { href: "/stays", label: "Stays", icon: "stay", match: (p: string) => p.startsWith("/stays") },
   { href: "/plan", label: "Plan", icon: "plan", match: (p: string) => p.startsWith("/plan") },
 ];
 
