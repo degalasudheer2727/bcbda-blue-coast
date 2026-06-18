@@ -496,12 +496,6 @@ body.is-scrolled .site-header {
 .tab:hover { color: var(--ocean-700); }
 .tab.active { color: #fff; background: linear-gradient(135deg, var(--ocean-500), var(--ocean-700)); box-shadow: var(--shadow-cta); }
 .tab-panel { margin-top: 26px; touch-action: pan-y; }
-/* tab content is rendered on demand (after the reveal observer runs), so opt it
-   out of scroll-reveal — the panel's own .reveal-in handles the entrance. */
-.reveal-ready .tab-panel .card,
-.reveal-ready .tab-panel .node,
-.reveal-ready .tab-panel .kpi,
-.reveal-ready .tab-panel .section-head { opacity: 1 !important; transform: none !important; }
 .reveal-in { animation: tabIn 0.35s var(--ease); }
 @keyframes tabIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .tab-panel .sub { font-size: 1.1rem; margin: 0 0 14px; }
@@ -795,24 +789,21 @@ body.is-scrolled .site-header {
 .section-head { max-width: 64ch; margin-bottom: 42px; }
 .section-head.center { margin-left: auto; margin-right: auto; }
 
-/* ---- Scroll reveal (JS adds .reveal-ready to <body>) ---------------- */
-.reveal-ready .card,
-.reveal-ready .node,
-.reveal-ready .kpi,
-.reveal-ready .phase,
-.reveal-ready .stat,
-.reveal-ready .section-head {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+/* ---- Content entrance (pure CSS, navigation-safe) ------------------- */
+/* Animates whenever an element is rendered — initial load AND every client
+   navigation — so content can never get stuck invisible. Default state is
+   VISIBLE; the animation only adds a brief fade/slide on top. */
+@media (prefers-reduced-motion: no-preference) {
+  .card, .node, .kpi, .phase, .stat, .section-head {
+    animation: revealUp 0.5s var(--ease) both;
+  }
 }
-.reveal-ready .is-in { opacity: 1 !important; transform: none !important; }
+@keyframes revealUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
 /* ---- Reduced motion (Priority 1) ------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
   .hero::before { animation: none; }
-  .reveal-ready .card, .reveal-ready .node, .reveal-ready .kpi,
-  .reveal-ready .phase, .reveal-ready .stat, .reveal-ready .section-head { opacity: 1; transform: none; }
 }
 
 /* ---- Responsive ----------------------------------------------------- */
