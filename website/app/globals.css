@@ -433,8 +433,13 @@ body.is-scrolled .site-header {
 .ticker-live {
   display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto;
   height: 100%; padding: 0 14px; font-weight: 800; font-size: 0.72rem;
-  letter-spacing: 0.08em; background: var(--coral); color: #fff;
+  letter-spacing: 0.08em; background: var(--coral); color: #fff; cursor: pointer;
+  transition: filter 0.16s ease;
 }
+.ticker-live:hover { color: #fff; filter: brightness(1.08); }
+.ticker-live::after { content: "›"; font-size: 1.05rem; line-height: 0; margin-left: 1px; opacity: 0.85; }
+/* pause the marquee while pressed (touch) so items become tappable */
+.ticker-viewport:active .ticker-marquee, .ticker-marquee:active { animation-play-state: paused; }
 .ticker-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: pulse 1.8s infinite; }
 .ticker-viewport { flex: 1 1 auto; overflow: hidden; position: relative; height: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
 .ticker-marquee { display: flex; width: max-content; height: 100%; animation: tickerScroll var(--ticker-speed, 50s) linear infinite; }
